@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui" xmlns:adm="http://github.com/adminfaces"
+                template="template.xhtml">
+
+
+    <ui:define name="body">
+        <f:metadata>
+            <f:viewParam name="id" value="#{carFormMB.id}" converter="javax.faces.Long"/>
+            <!-- use view action if you are in a Java EE 7 server: <f:viewAction action="#{carFormMB.init()}"/>-->
+            <f:event type="preRenderView" listener="#{carFormMB.init}"/>
+        </f:metadata>
+
+        <adm:breadcrumb title="Car #{carFormMB.id}" link="car-form.xhtml?id=#{carFormMB.id}"/>
+        <h:form id="form" prependId="false">
+            <p:focus/>
+
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <div id="main-buttons" class="hidden-sm hidden-xs">
+                        <p:commandButton value="Save" action="#{carFormMB.save}" update="@form"
+                                         icon="fa fa-check" styleClass="btn-primary"/>
+                        <p:spacer width="5" rendered="#{carFormMB.isNew()}"/>
+                        <p:commandButton value="Clear" action="#{carFormMB.clear}" process="@this"
+                                         icon="fa fa-refresh" styleClass="btn-success"
+                                         update="@form" rendered="#{carFormMB.isNew()}" resetValues="true"/>
+                        <p:spacer width="5" rendered="#{not carFormMB.isNew()}"/>
+
+                        <p:commandButton value="Delete" action="#{carFormMB.remove}" process="@this"
+                                         rendered="#{not carFormMB.isNew()}" icon="fa fa-trash"
+                                         styleClass="btn-danger">
+                            <f:setPropertyActionListener value="true"
+                                                         target="#{facesContext.externalContext.flash.keepMessages}"/>
+                        </p:commandButton>
+                        <p:spacer width="5"/>
+                        <p:commandButton value="Back" immediate="true"
+                                         action="car-list?faces-redirect=true"
+                                         process="@this"
+                                         icon="fa fa-close"/>
+                    </div>
+                    <p:splitButton value="Save" action="#{carFormMB.save}" update="@form"
+                                   icon="fa fa-check"
+                                   styleClass="hidden-md hidden-lg btn-primary">
+                        <p:menuitem value="Reset" action="#{carFormMB.clear}"
+                                    process="@this" update="@form" rendered="#{carFormMB.isNew()}"
+                                    resetValues="true" icon="fa fa-refresh"/>
+                        <p:menuitem value="Delete" action="#{carFormMB.delete}" process="@this"
+                                    rendered="#{not carFormMB.isNew()}" icon="fa fa-trash"
+                                />
+                        <p:separator/>
+                        <p:menuitem value="Back" action="car-list?faces-redirect=true"
+                                    process="@this" immediate="true"
+                                    icon="fa fa-close"/>
+                    </p:splitButton>
+
+                    <p:separator/>
+
+                    <div class="ui-g ui-fluid">
+                        <div class="ui-g-12">
+                            <p:outputLabel for="id" value="ID"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:inputText id="id" value="#{carFormMB.car.id}" size="4"
+                                         readonly="true" styleClass="form-control"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:outputLabel value="Model:" for="inptModel"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:inputText id="inptModel" value="#{carFormMB.car.model}"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:outputLabel value="Name:" for="inptName"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:inputText id="inptName" value="#{carFormMB.car.name}"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:outputLabel value="Price:" for="inptPrice"/>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:inputText id="inptPrice" value="#{carFormMB.car.price}"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+
+
+    </ui:define>
+
+</ui:composition>

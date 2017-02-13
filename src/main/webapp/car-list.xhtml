@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:adm="http://github.com/adminfaces"
+                template="template.xhtml">
+
+    <ui:define name="head-end">
+        <style type="text/css">
+            .ui-datatable .ui-datatable-header {
+                text-align: right !important;
+            }
+
+        </style>
+    </ui:define>
+
+    <ui:define name="title">
+        Car listing
+    </ui:define>
+
+    <ui:define name="description">
+        Find cars by name, price and model
+    </ui:define>
+
+    <ui:define name="body">
+        <adm:breadcrumb title="Car list"/>
+
+        <h:form>
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <p:commandButton action="car-form?faces-redirect=true" ajax="false" icon="fa fa-plus"
+                                     value="New" styleClass="btn-primary"/>
+                    <p:spacer width="5"/>
+                    <p:commandButton value="Delete Selected" icon="fa fa-trash" styleClass="btn-danger"
+                                     action="#{carListMB.delete}"
+                                     disabled="#{empty carListMB.selectedCars or carListMB.selectedCars.size() == 0}"
+                                     process="@form" update="@form"
+                            />
+                    <p:spacer width="5"/>
+                    <p:commandButton value="View selected cars" update="@(.ui-dialog)" styleClass="btn-info"
+                                     oncomplete="PF('selectedCars').show()" icon="fa fa-search"/>
+                    <p:separator/>
+                    <p:dataTable widgetVar="carsTable" var="c" value="#{carListMB.cars}" rows="5"
+                                 rowKey="#{c.id}" lazy="true" paginator="true"
+                                 filteredValue="#{carListMB.filteredValue}"
+                                 paginatorPosition="bottom" selection="#{carListMB.selectedCars}"
+                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} {JumpToPageDropdown}"
+                                 currentPageReportTemplate="[ Showing {startRecord} to {endRecord} Total {totalRecords} - Page: {currentPage}/{totalPages} ]"
+                                 rowsPerPageTemplate="5,10,15,20,30"
+                            >
+
+                        <p:ajax event="rowSelectCheckbox" update="@form"/>
+                        <p:ajax event="rowUnselectCheckbox" update="@form"/>
+                        <p:ajax event="rowSelect" update="@form"/>
+                        <p:ajax event="rowUnselect" update="@form"/>
+
+
+                        <f:facet name="header">
+                            Find Car by id: <p:inputText id="inptId" value="#{carListMB.id}"/>
+                            <p:spacer height="5"/>
+                            <p:commandButton id="brFind"
+                                             value="Find"
+                                             action="#{carListMB.findCarById(carListMB.id)}"
+                                             process="@form"
+                                             update="@form"
+                                             styleClass="btn-flat bg-black"
+                                             partialSubmit="true"/>
+                        </f:facet>
+                        <p:column selectionMode="multiple" width="5%" styleClass="align-center"/>
+
+                        <p:column headerText="Model" filterBy="#{c.model}" sortBy="#{c.model}"
+                                  filterMatchMode="contains">
+                            <f:facet name="filter">
+                                <p:autoComplete value="#{carListMB.filter.entity.model}" forceSelection="true"
+                                                minQueryLength="2" queryDelay="500"
+                                                completeMethod="#{carListMB.completeModel}" maxResults="10">
+                                    <p:ajax event="blur" process="@this" update="@none"
+                                            oncomplete="PF('carsTable').filter()"/>
+                                </p:autoComplete>
+                            </f:facet>
+                             <h:link value="#{c.model}" outcome="car-form.xhtml">
+                                <f:param name="id" value="#{c.id}"/>
+                            </h:link>
+
+                        </p:column>
+                        <p:column headerText="Name" sortBy="#{c.name}" filterBy="#{c.name}">
+                            <f:facet name="filter">
+                                <p:inputText value="#{carListMB.filter.entity.name}">
+                                    <p:ajax process="@this" update="@none" oncomplete="PF('carsTable').filter()"/>
+                                </p:inputText>
+                            </f:facet>
+                            #{c.name}
+                        </p:column>
+                        <p:column headerText="Price" sortBy="#{c.price}" filterBy="#{c.price}">
+                            <f:facet name="filter">
+                                <p:spinner value="#{carListMB.filter.entity.price}">
+                                    <f:converter converterId="javax.faces.Double"/>
+                                    <p:ajax process="@this" update="@none" oncomplete="PF('carsTable').filter()"/>
+                                </p:spinner>
+                            </f:facet>
+                            #{c.price}
+                        </p:column>
+                    </p:dataTable>
+                </div>
+            </div>
+        </h:form>
+
+        <p:dialog header="Selected cars" widgetVar="selectedCars" height="250" width="400" styleClass="box-success">
+            <p:dataList id="selectedCarsList" value="#{carListMB.selectedCars}" var="car"
+                        type="definition">
+                ID: #{car.id} - Name: #{car.name} - Model: #{car.model}
+            </p:dataList>
+        </p:dialog>
+
+    </ui:define>
+
+</ui:composition>

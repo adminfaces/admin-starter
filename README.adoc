@@ -1,0 +1,8 @@
+= AdminFaces Starter project
+
+
+A simple project to get you started with https://github.com/adminfaces[AdminFaces^].
+
+== Running
+
+It should run in any JavaEE 6 or greater application server.
