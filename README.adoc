@@ -3,6 +3,18 @@
 
 A simple project to get you started with https://github.com/adminfaces[AdminFaces^].
 
+.Login page
+image:starter1.png[]
+
+.Car list
+image:starter2.png[]
+
+.Car form
+image:starter3.png[]
+
+.Car form responsive
+image:starter4.png[]
+
 == Running
 
 It should run in any JavaEE 6 or greater application server.
