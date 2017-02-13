@@ -19,7 +19,7 @@ image:starter4.png[]
 
 It should run in any JavaEE 6 or greater application server.
 
-Tou can also run via wildfly-swarm with command `mvn wildfly-swarm:run -warm`.
+You can also run via wildfly-swarm with command `mvn wildfly-swarm:run -swarm`.
 
 == Demo
 
