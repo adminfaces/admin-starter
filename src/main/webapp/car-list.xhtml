@@ -74,7 +74,7 @@
                                 <p:autoComplete value="#{carListMB.filter.entity.model}" forceSelection="true"
                                                 minQueryLength="2" queryDelay="500"
                                                 completeMethod="#{carListMB.completeModel}" maxResults="10">
-                                    <p:ajax event="blur" process="@this" update="@none"
+                                    <p:ajax event="itemSelect" process="@this" update="@none"
                                             oncomplete="PF('carsTable').filter()"/>
                                 </p:autoComplete>
                             </f:facet>
