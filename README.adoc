@@ -6,3 +6,7 @@ A simple project to get you started with https://github.com/adminfaces[AdminFace
 == Running
 
 It should run in any JavaEE 6 or greater application server.
+
+== Demo
+
+A live demo is available on Openshift here: http://starter-adminfaces.rhcloud.com/admin-starter/
