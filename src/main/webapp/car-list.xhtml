@@ -49,10 +49,10 @@
                                  rowsPerPageTemplate="5,10,15,20,30"
                             >
 
-                        <p:ajax event="rowSelectCheckbox" update="@form"/>
-                        <p:ajax event="rowUnselectCheckbox" update="@form"/>
-                        <p:ajax event="rowSelect" update="@form"/>
-                        <p:ajax event="rowUnselect" update="@form"/>
+                        <p:ajax event="rowSelectCheckbox" update="@(.ui-button)"/>
+                        <p:ajax event="rowUnselectCheckbox" update="@(.ui-button)"/>
+                        <p:ajax event="rowSelect" update="@(.ui-button)"/>
+                        <p:ajax event="rowUnselect" update="@(.ui-button)"/>
 
 
                         <f:facet name="header">
