@@ -105,7 +105,8 @@
             </div>
         </h:form>
 
-        <p:dialog header="Selected cars" widgetVar="selectedCars" height="250" width="400" styleClass="box-success">
+        <p:dialog header="Selected cars" widgetVar="selectedCars" height="250"
+                  width="400" responsive="true" styleClass="box-success">
             <p:dataList id="selectedCarsList" value="#{carListMB.selectedCars}" var="car"
                         type="definition">
                 ID: #{car.id} - Name: #{car.name} - Model: #{car.model}
