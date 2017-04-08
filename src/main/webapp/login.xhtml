@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:adm="http://github.com/adminfaces"
       xmlns:p="http://primefaces.org/ui">
 
 <f:view contentType="text/html">
@@ -36,7 +37,7 @@
                         <p:inputText value="#{logonMB.password}" type="password" styleClass="form-control"
                                      placeholder="Just type any value" required="true"
                                      requiredMessage="Password is required."/>
-                        <i class="fa fa-lock form-control-feedback" style="margin-top: 10px"></i>
+                       <i class="fa fa-lock form-control-feedback" style="margin-top: 10px"></i>
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
@@ -67,6 +68,7 @@
             </div>
             <!-- /.login-box-body -->
         </div>
+        <adm:ripple />
     </h:body>
 </f:view>
 </html>
