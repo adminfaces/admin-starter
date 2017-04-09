@@ -28,17 +28,34 @@
         <h:form>
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <p:commandButton action="car-form?faces-redirect=true" ajax="false" icon="fa fa-plus"
-                                     value="New" styleClass="btn-primary"/>
-                    <p:spacer width="5"/>
-                    <p:commandButton value="Delete Selected" icon="fa fa-trash" styleClass="btn-danger"
-                                     action="#{carListMB.delete}"
-                                     disabled="#{empty carListMB.selectedCars or carListMB.selectedCars.size() == 0}"
-                                     process="@form" update="@form"
-                            />
-                    <p:spacer width="5"/>
-                    <p:commandButton value="View selected cars" update="@(.ui-dialog)" styleClass="btn-info"
-                                     oncomplete="PF('selectedCars').show()" icon="fa fa-search"/>
+                    <div id="main-buttons" class="hidden-sm hidden-xs">
+                        <p:commandButton action="car-form?faces-redirect=true" ajax="false" icon="fa fa-plus"
+                                         value="New" styleClass="btn-primary"/>
+                        <p:spacer width="5"/>
+                        <p:commandButton value="Delete Selected" icon="fa fa-trash" styleClass="btn-danger"
+                                         action="#{carListMB.delete}"
+                                         disabled="#{empty carListMB.selectedCars or carListMB.selectedCars.size() == 0}"
+                                         process="@form" update="@form"
+                        />
+                        <p:spacer width="5"/>
+                        <p:commandButton value="View selected" update="@(.ui-dialog)" styleClass="btn-info"
+                                         oncomplete="PF('selectedCars').show()" icon="fa fa-search"/>
+                    </div>
+
+                    <p:splitButton value="New" action="car-form?faces-redirect=true" ajax="false"
+                                   icon="fa fa-plus"
+                                   styleClass="hidden-md hidden-lg btn-primary">
+                        <p:menuitem value="Delete Selected" action="#{carListMB.delete}"
+                                    process="@this" update="@form"
+                                    disabled="#{empty carListMB.selectedCars or carListMB.selectedCars.size() == 0}"
+                                    icon="fa fa-trash"/>
+                        <p:menuitem value="View selected" update="@(.ui-dialog)"
+                                    oncomplete="PF('selectedCars').show()"
+                                    disabled="#{empty carListMB.selectedCars or carListMB.selectedCars.size() == 0}"
+                                    icon="fa fa-search"
+                        />
+                    </p:splitButton>
+
                     <p:separator/>
                     <p:dataTable widgetVar="carsTable" var="c" value="#{carListMB.cars}" rows="5"
                                  rowKey="#{c.id}" lazy="true" paginator="true"

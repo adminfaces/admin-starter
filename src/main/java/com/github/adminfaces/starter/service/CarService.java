@@ -9,6 +9,7 @@ import com.github.adminfaces.starter.infra.model.SortOrder;
 import com.github.adminfaces.starter.model.Car;
 import com.github.adminfaces.template.exception.BusinessException;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ import static com.github.adminfaces.template.util.Assert.has;
  * @author rmpestano
  *         Car Business logic
  */
+@Stateless
 public class CarService implements Serializable {
 
     @Inject
