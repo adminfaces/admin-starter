@@ -7,6 +7,11 @@
 
     <ui:define name="head">
         <title>Admin Starter</title>
+        <link rel="shortcut icon" type="image/x-icon" href="#{resource['favicon/favicon.ico']}"/>
+        <link rel="shortcut icon" type="image/x-icon" href="#{resource['favicon/favicon-16x16.png']}" sizes="16x16"/>
+        <link rel="shortcut icon" type="image/x-icon" href="#{resource['favicon/favicon-32x32.png']}" sizes="32x32"/>
+        <link rel="shortcut icon" type="image/x-icon" href="#{resource['favicon/favicon-96x96.png']}" sizes="96x96"/>
+        <link rel="manifest" href="/manifest.json"/>
         <f:loadBundle var="msg" basename="starter"/>
         <h:outputStylesheet library="css" name="starter.css"/>
     </ui:define>

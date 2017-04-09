@@ -1,0 +1,25 @@
+{
+    "short_name": "Admin Starter",
+    "name": "AdminFaces Starter Application",
+    "icons": [
+        {
+            "src": "/resources/favicon/favicon-196x196.png",
+            "sizes": "196x196",
+            "type": "image/png"
+        },
+        {
+            "src": "/resources/favicon/favicon-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "/resources/favicon/favicon-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#3c8dbc",
+    "background_color": "#ffffff",
+    "start_url": "/index.xhtml",
+    "display": "standalone"
+}

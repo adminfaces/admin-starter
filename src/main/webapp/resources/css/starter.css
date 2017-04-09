@@ -31,4 +31,5 @@ a.dropdown-toggle {
 
 a#logout {
     color: #3c8dbc!important;
+    background: transparent;
 }
