@@ -48,7 +48,7 @@
                         <p:menuitem value="Reset" action="#{carFormMB.clear}"
                                     process="@this" update="@form" rendered="#{carFormMB.isNew()}"
                                     resetValues="true" icon="fa fa-refresh"/>
-                        <p:menuitem value="Delete" action="#{carFormMB.delete}" process="@this"
+                        <p:menuitem value="Delete" action="#{carFormMB.remove}" process="@this"
                                     rendered="#{not carFormMB.isNew()}" icon="fa fa-trash"
                                 />
                         <p:separator/>
