@@ -45,6 +45,15 @@
         <div class="pull-right hidden-xs" style="color: gray">
             <i>#{msg['starter.version']}</i>
         </div>
+
+        <script type="text/javascript">
+            if(isMobile()) {
+                $('a.ui-link').click(function() {
+                    $(this).prop('disabled', true);
+                    showBar();
+                });
+            }
+        </script>
     </ui:define>
 
 
