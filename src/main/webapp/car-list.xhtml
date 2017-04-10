@@ -29,7 +29,7 @@
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <div id="main-buttons" class="hidden-sm hidden-xs">
-                        <p:commandButton action="car-form?faces-redirect=true" ajax="false" icon="fa fa-plus"
+                        <p:commandButton action="car-form?faces-redirect=true" icon="fa fa-plus"
                                          value="New" styleClass="btn-primary"/>
                         <p:spacer width="5"/>
                         <p:commandButton value="Delete Selected" icon="fa fa-trash" styleClass="btn-danger"
@@ -42,7 +42,7 @@
                                          oncomplete="PF('selectedCars').show()" icon="fa fa-search"/>
                     </div>
 
-                    <p:splitButton value="New" action="car-form?faces-redirect=true" ajax="false"
+                    <p:splitButton value="New" action="car-form?faces-redirect=true"
                                    icon="fa fa-plus"
                                    styleClass="hidden-md hidden-lg btn-primary">
                         <p:menuitem value="Delete Selected" action="#{carListMB.delete}"
@@ -95,9 +95,9 @@
                                             oncomplete="PF('carsTable').filter()"/>
                                 </p:autoComplete>
                             </f:facet>
-                             <h:link value="#{c.model}" outcome="car-form.xhtml">
+                             <p:link value="#{c.model}" href="car-form.xhtml">
                                 <f:param name="id" value="#{c.id}"/>
-                            </h:link>
+                            </p:link>
 
                         </p:column>
                         <p:column headerText="Name" sortBy="#{c.name}" filterBy="#{c.name}">
