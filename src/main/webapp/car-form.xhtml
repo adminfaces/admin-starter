@@ -17,7 +17,7 @@
 
         <adm:breadcrumb title="#{empty carFormMB.id ? 'New Car' : 'Car '.concat(carFormMB.id)}" link="car-form.xhtml?id=#{carFormMB.id}"/>
         <h:form id="form" prependId="false">
-            <p:focus/>
+            <p:focus rendered="#{empty carFormMB.id}"/>
 
             <div class="box box-primary">
                 <div class="box-header with-border">
