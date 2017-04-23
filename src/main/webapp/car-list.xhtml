@@ -39,6 +39,7 @@
                         />
                         <p:spacer width="5"/>
                         <p:commandButton value="View selected" update="@(.ui-dialog)" styleClass="btn-info"
+                                         disabled="#{empty carListMB.selectedCars or carListMB.selectedCars.size() == 0}"
                                          oncomplete="PF('selectedCars').show()" icon="fa fa-search"/>
                     </div>
 
