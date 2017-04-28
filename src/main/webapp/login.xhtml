@@ -22,7 +22,6 @@
     </h:head>
 
     <h:body styleClass="hold-transition login-page">
-        <p:growl autoUpdate="true" life="4000"/>
         <div id="loader" class="load-bar" style="display: none">
             <div class="bar"></div>
             <div class="bar"></div>
@@ -37,6 +36,7 @@
             <div class="login-box-body">
                 <h:form>
                     <p class="login-box-msg">Sign in to start your session</p>
+                    <p:messages closable="true"/>
 
                     <div class="form-group has-feedback">
                         <p:inputText value="#{logonMB.email}" type="email" styleClass="form-control" placeholder="Just type any value"
