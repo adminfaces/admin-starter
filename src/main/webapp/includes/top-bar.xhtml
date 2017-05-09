@@ -5,7 +5,24 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:pe="http://primefaces.org/ui/extensions">
 
+    <style type="text/css">
+        #layout-menu_menu {
+            z-index: 9997!important;
+        }
+        #layout-menu_menu span.ui-menuitem-text {
+            margin-left: 2px;
+        }
+
+    </style>
     <ul class="nav navbar-nav">
+        <li>
+            <h:form prependId="false">
+                <p:menuButton value="Layout mode" style="margin-top:10px" id="layout-menu">
+                    <p:menuitem value="Default" action="#{layoutMB.setDefaultLayout}" ajax="false" icon="fa fa-list-ul"/>
+                    <p:menuitem value="Horizontal menu"  action="#{layoutMB.setHorizontalLayout}" ajax="false" icon="fa fa-credit-card"/>
+                </p:menuButton>
+            </h:form>
+        </li>
         <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <pe:gravatar id="userImage"
