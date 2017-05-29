@@ -35,6 +35,7 @@
                                          styleClass="btn-danger">
                             <f:setPropertyActionListener value="true"
                                                          target="#{facesContext.externalContext.flash.keepMessages}"/>
+                            <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
                         </p:commandButton>
                         <p:spacer width="5"/>
                         <p:commandButton value="Back" immediate="true"
@@ -88,6 +89,13 @@
                     </div>
                 </div>
             </div>
+
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="box-danger">
+                <p:commandButton value="Yes" type="button" styleClass="btn-primary ui-confirmdialog-yes"
+                                 icon="fa fa-check"/>
+                <p:commandButton value="No" type="button" styleClass="btn-danger ui-confirmdialog-no"
+                                 icon="fa fa-close"/>
+            </p:confirmDialog>
         </h:form>
 
 

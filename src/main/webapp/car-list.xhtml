@@ -35,8 +35,10 @@
                         <p:commandButton value="Delete Selected" icon="fa fa-trash" styleClass="btn-danger"
                                          action="#{carListMB.delete}"
                                          disabled="#{empty carListMB.selectedCars or carListMB.selectedCars.size() == 0}"
-                                         process="@form" update="@form"
-                        />
+                                         process="@this" update="@form"
+                        >
+                            <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
+                        </p:commandButton>
                         <p:spacer width="5"/>
                         <p:commandButton value="View selected" update="@(.ui-dialog)" styleClass="btn-info"
                                          disabled="#{empty carListMB.selectedCars or carListMB.selectedCars.size() == 0}"
@@ -49,7 +51,9 @@
                         <p:menuitem value="Delete Selected" action="#{carListMB.delete}"
                                     process="@this" update="@form"
                                     disabled="#{empty carListMB.selectedCars or carListMB.selectedCars.size() == 0}"
-                                    icon="fa fa-trash"/>
+                                    icon="fa fa-trash">
+                            <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
+                        </p:menuitem>
                         <p:menuitem value="View selected" update="@(.ui-dialog)"
                                     oncomplete="PF('selectedCars').show()"
                                     disabled="#{empty carListMB.selectedCars or carListMB.selectedCars.size() == 0}"
@@ -67,10 +71,10 @@
                                  rowsPerPageTemplate="5,10,15,20,30"
                             >
 
-                        <p:ajax event="rowSelectCheckbox" update="@(.ui-button)"/>
-                        <p:ajax event="rowUnselectCheckbox" update="@(.ui-button)"/>
-                        <p:ajax event="rowSelect" update="@(.ui-button)"/>
-                        <p:ajax event="rowUnselect" update="@(.ui-button)"/>
+                        <p:ajax event="rowSelectCheckbox" update="@(.ui-button, .ui-confirm-dialog)"/>
+                        <p:ajax event="rowUnselectCheckbox" update="@(.ui-button, .ui-confirm-dialog)"/>
+                        <p:ajax event="rowSelect" update="@(.ui-button, .ui-confirm-dialog)"/>
+                        <p:ajax event="rowUnselect" update="@(.ui-button, .ui-confirm-dialog)"/>
 
 
                         <f:facet name="header">
@@ -121,7 +125,15 @@
                     </p:dataTable>
                 </div>
             </div>
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="box-danger">
+                <p:commandButton value="Yes" type="button" styleClass="btn-primary ui-confirmdialog-yes"
+                                 icon="fa fa-check"/>
+                <p:commandButton value="No" type="button" styleClass="btn-danger ui-confirmdialog-no"
+                                 icon="fa fa-close"/>
+            </p:confirmDialog>
         </h:form>
+
+
 
         <p:dialog header="Selected cars" widgetVar="selectedCars" height="250"
                   width="400" responsive="true" styleClass="box-success">
