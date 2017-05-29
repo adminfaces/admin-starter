@@ -51,7 +51,9 @@
                                     resetValues="true" icon="fa fa-refresh"/>
                         <p:menuitem value="Delete" action="#{carFormMB.remove}" process="@this"
                                     rendered="#{not carFormMB.isNew()}" icon="fa fa-trash"
-                                />
+                                 >
+                            <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
+                        </p:menuitem>
                         <p:separator/>
                         <p:menuitem value="Back" action="car-list?faces-redirect=true"
                                     process="@this" immediate="true"
