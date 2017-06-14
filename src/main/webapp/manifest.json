@@ -20,6 +20,7 @@
     ],
     "theme_color": "#3c8dbc",
     "background_color": "#ffffff",
-    "start_url": "/index.xhtml",
+    "scope": "/admin-starter/",
+    "start_url": "/admin-starter/index.xhtml",
     "display": "standalone"
 }

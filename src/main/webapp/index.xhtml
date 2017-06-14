@@ -10,7 +10,8 @@
 
     <ui:define name="title">
         <h2 class="align-center">
-            Welcome to the <span class="text-aqua"> <i><a href="https://github.com/adminfaces/admin-starter" target="_blank"
+            Welcome to the <span class="text-aqua"> <i><a href="https://github.com/adminfaces/admin-starter"
+                                                          target="_blank"
                                                           style="text-transform: none;text-decoration: none"> AdminFaces Starter</a></i></span> Project!
             <br/>
             <small>Integrating <p:link value="Primefaces" href="http://primefaces.org"/>, <p:link value="Bootstrap"
@@ -20,6 +21,33 @@
             </small>
         </h2>
 
+    </ui:define>
+
+    <ui:define name="body">
+        <script type="text/javascript">
+            /*if ('serviceWorker' in navigator) {
+             navigator.serviceWorker.register('sw.js');
+             }*/
+
+
+            if ('serviceWorker' in navigator) {
+              /*  navigator.serviceWorker.getRegistrations().then(function (registrations) {
+                    for (let registration of registrations) {
+                        registration.unregister()
+                    }
+                });*/
+
+                 window.addEventListener('load', function () {
+                    navigator.serviceWorker.register('sw.js').then(function (registration) {
+                        // Registration was successful
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    }, function (err) {
+                        // registration failed :(
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+                });
+            }
+        </script>
     </ui:define>
 
 
