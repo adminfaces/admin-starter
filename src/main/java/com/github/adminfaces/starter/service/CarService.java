@@ -140,16 +140,24 @@ public class CarService implements Serializable {
     }
 
     public void beforeInsert(Car car) {
+        BusinessException be = new BusinessException();
         if (!car.hasModel()) {
-            throw new BusinessException("Car model cannot be empty");
+            be.addException(new BusinessException("Car model cannot be empty"));
         }
         if (!car.hasName()) {
-            throw new BusinessException("Car name cannot be empty");
+           be.addException(new BusinessException("Car name cannot be empty"));
+        }
+
+        if (!has(car.getPrice())) {
+            be.addException(new BusinessException("Car price cannot be empty"));
         }
 
         if (allCars.stream().filter(c -> c.getName().equalsIgnoreCase(car.getName())
                 && c.getId() != c.getId()).count() > 0) {
-            throw new BusinessException("Car name must be unique");
+            be.addException(new BusinessException("Car name must be unique"));
+        }
+        if(has(be.getExceptionList())) {
+            throw be;
         }
     }
 
