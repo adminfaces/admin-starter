@@ -131,7 +131,7 @@ public class CarService implements Serializable {
     }
 
     public void insert(Car car) {
-        beforeInsert(car);
+        validate(car);
         car.setId(allCars.stream()
                 .mapToInt(c -> c.getId())
                 .max()
@@ -139,7 +139,7 @@ public class CarService implements Serializable {
         allCars.add(car);
     }
 
-    public void beforeInsert(Car car) {
+    public void validate(Car car) {
         BusinessException be = new BusinessException();
         if (!car.hasModel()) {
             be.addException(new BusinessException("Car model cannot be empty"));
@@ -181,6 +181,7 @@ public class CarService implements Serializable {
     }
 
     public void update(Car car) {
+        validate(car);
         allCars.remove(allCars.indexOf(car));
         allCars.add(car);
     }
