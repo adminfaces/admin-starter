@@ -21,6 +21,14 @@ It should run in any JavaEE 6 or greater application server.
 
 You can also run via wildfly-swarm with command `mvn wildfly-swarm:run -Pswarm`.
 
+Or using docker:
+
+----
+docker run -it -p 8080:8080 rmpestano/admin-starter
+----
+
+The application is available at http://localhost:8080/admin-starter
+
 == Demo
 
 A live demo is available on Openshift here: http://starter-adminfaces.rhcloud.com/admin-starter/
