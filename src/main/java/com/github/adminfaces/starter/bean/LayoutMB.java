@@ -1,4 +1,4 @@
-package com.github.adminfaces.showcase.bean;
+package com.github.adminfaces.starter.bean;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
