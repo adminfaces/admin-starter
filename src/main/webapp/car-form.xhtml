@@ -41,7 +41,7 @@
                         <p:commandButton value="Back" immediate="true"
                                          action="car-list?faces-redirect=true"
                                          process="@this"
-                                         icon="fa fa-close"/>
+                                         icon="fa fa-reply"/>
                     </div>
                     <p:splitButton value="Save" action="#{carFormMB.save}" update="@form"
                                    icon="fa fa-check"
@@ -57,35 +57,35 @@
                         <p:separator/>
                         <p:menuitem value="Back" action="car-list?faces-redirect=true"
                                     process="@this" immediate="true"
-                                    icon="fa fa-close"/>
+                                    icon="fa fa-reply"/>
                     </p:splitButton>
 
                     <p:separator/>
 
                     <div class="ui-g ui-fluid">
-                        <div class="ui-g-12">
+                        <div class="ui-g-12 ui-lg-2 ui-xl-1">
                             <p:outputLabel for="id" value="ID"/>
                         </div>
-                        <div class="ui-g-12">
+                        <div class="ui-g-12 ui-lg-10 ui-xl-11" >
                             <p:inputText id="id" value="#{carFormMB.car.id}" size="4"
                                          readonly="true" styleClass="form-control"/>
                         </div>
-                        <div class="ui-g-12">
+                        <div class="ui-g-12 ui-lg-2 ui-xl-1">
                             <p:outputLabel value="Model" for="inptModel"/>
                         </div>
-                        <div class="ui-g-12">
+                        <div class="ui-g-12 ui-lg-10 ui-xl-11">
                             <p:inputText id="inptModel" value="#{carFormMB.car.model}"/>
                         </div>
-                        <div class="ui-g-12">
+                        <div class="ui-g-12 ui-lg-2 ui-xl-1">
                             <p:outputLabel value="Name" for="inptName"/>
                         </div>
-                        <div class="ui-g-12">
+                        <div class="ui-g-12 ui-lg-10 ui-xl-11">
                             <p:inputText id="inptName" value="#{carFormMB.car.name}"/>
                         </div>
-                        <div class="ui-g-12">
+                        <div class="ui-g-12 ui-lg-2 ui-xl-1">
                             <p:outputLabel value="Price" for="inptPrice"/>
                         </div>
-                        <div class="ui-g-12">
+                        <div class="ui-g-12 ui-lg-10 ui-xl-11">
                             <p:inputNumber id="inptPrice" value="#{carFormMB.car.price}"/>
                         </div>
                     </div>
