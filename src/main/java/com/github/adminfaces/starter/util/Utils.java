@@ -31,18 +31,17 @@ public class Utils implements Serializable {
         return new Car(i).model("model " + i).name("name" + i).price(Double.valueOf(i));
     }
 
-     public static void addDetailMessage(String message){
-       addDetailMessage(message, null);
+    public static void addDetailMessage(String message) {
+        addDetailMessage(message, null);
     }
 
-    public static void addDetailMessage(String message, FacesMessage.Severity severity){
+    public static void addDetailMessage(String message, FacesMessage.Severity severity) {
 
         FacesMessage facesMessage = Messages.create("").detail(message).get();
-        if(severity != null && severity != FacesMessage.SEVERITY_INFO) {
+        if (severity != null && severity != FacesMessage.SEVERITY_INFO) {
             facesMessage.setSeverity(severity);
-        } else{
-            Messages.add(null,facesMessage);
         }
+        Messages.add(null, facesMessage);
     }
 
     @Produces
