@@ -18,6 +18,10 @@
         <param-name>primefaces.FONT_AWESOME</param-name>
         <param-value>true</param-value>
     </context-param>
+    <context-param>
+        <param-name>javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL</param-name>
+        <param-value>true</param-value>
+    </context-param>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
@@ -46,8 +50,36 @@
 
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>*.xhtml</url-pattern>
+        <url-pattern>*.jsf</url-pattern>
     </servlet-mapping>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/403.jsf</location>
+    </error-page>
+    <error-page>
+        <exception-type>com.github.adminfaces.template.exception.AccessDeniedException</exception-type>
+        <location>/403.jsf</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.jsf</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/500.jsf</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/500.jsf</location>
+    </error-page>
+    <error-page>
+        <exception-type>javax.faces.application.ViewExpiredException</exception-type>
+        <location>/expired.jsf</location>
+    </error-page>
+    <error-page>
+        <exception-type>javax.persistence.OptimisticLockException</exception-type>
+        <location>/optimistic.jsf</location>
+    </error-page>
     <mime-mapping>
         <extension>ico</extension>
         <mime-type>image/x-icon</mime-type>
