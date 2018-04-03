@@ -11,6 +11,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <adminfaces.version>1.0.0-RC13</adminfaces.version>
     </properties>
 
     <dependencies>
@@ -28,13 +29,13 @@
         <dependency>
             <groupId>org.primefaces.extensions</groupId>
             <artifactId>primefaces-extensions</artifactId>
-            <version>6.0.0</version>
+            <version>6.1.1</version>
             <!-- only for gravatar, adminfaces doesn't depend on extensions-->
         </dependency>
         <dependency>
             <groupId>com.github.adminfaces</groupId>
             <artifactId>admin-template</artifactId>
-            <version>1.0.0-RC13-SNAPSHOT</version>
+            <version>${adminfaces.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.github.adminfaces</groupId>
@@ -45,7 +46,7 @@
         <dependency>
             <groupId>com.github.adminfaces</groupId>
             <artifactId>admin-theme</artifactId>
-            <version>1.0.0-RC13-SNAPSHOT</version>
+            <version>${adminfaces.version}</version>
             <!--<classifier>dev</classifier> uncompressed theme.css (note that you need to exclude admin-theme brought by admin-template dependency)-->
         </dependency>
     </dependencies>
