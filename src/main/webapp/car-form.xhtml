@@ -2,7 +2,7 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui" xmlns:adm="http://github.com/adminfaces"
-                template="#{layoutMB.layout}">
+                template="#{layoutMB.template}">
 
     <ui:define name="title">
         Car form
@@ -63,36 +63,36 @@
                     <p:separator/>
 
                     <div class="ui-g ui-fluid">
-                        <div class="ui-g-12 ui-lg-2 ui-xl-1">
+                        <div class="ui-sm-12 ui-md-2 ui-lg-1">
                             <p:outputLabel for="id" value="ID"/>
                         </div>
-                        <div class="ui-g-12 ui-lg-10 ui-xl-11" >
+                        <div class="ui-sm-12 ui-md-4 ui-lg-5" >
                             <p:inputText id="id" value="#{carFormMB.car.id}" size="4"
-                                         readonly="true" styleClass="form-control"/>
+                                         readonly="true" styleClass="form-control" style="width: 100%"/>
                         </div>
-                        <div class="ui-g-12 ui-lg-2 ui-xl-1">
+                        <div class="ui-sm-12 ui-md-2 ui-lg-1">
                             <p:outputLabel value="Model" for="inptModel"/>
                         </div>
-                        <div class="ui-g-12 ui-lg-10 ui-xl-11">
+                        <div class="ui-sm-12 ui-md-4 ui-lg-5" >
                             <p:inputText id="inptModel" value="#{carFormMB.car.model}"/>
                         </div>
-                        <div class="ui-g-12 ui-lg-2 ui-xl-1">
+                        <div class="ui-sm-12 ui-md-2 ui-lg-1">
                             <p:outputLabel value="Name" for="inptName"/>
                         </div>
-                        <div class="ui-g-12 ui-lg-10 ui-xl-11">
+                        <div class="ui-sm-12 ui-md-4 ui-lg-5" >
                             <p:inputText id="inptName" value="#{carFormMB.car.name}"/>
                         </div>
-                        <div class="ui-g-12 ui-lg-2 ui-xl-1">
+                        <div class="ui-sm-12 ui-md-2 ui-lg-1">
                             <p:outputLabel value="Price" for="inptPrice"/>
                         </div>
-                        <div class="ui-g-12 ui-lg-10 ui-xl-11">
+                        <div class="ui-sm-12 ui-md-4 ui-lg-5" >
                             <p:inputNumber id="inptPrice" value="#{carFormMB.car.price}"/>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="box-danger">
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="box-danger box-solid">
                 <p:commandButton value="Yes" type="button" styleClass="btn-primary ui-confirmdialog-yes"
                                  icon="fa fa-check"/>
                 <p:commandButton value="No" type="button" styleClass="btn-danger ui-confirmdialog-no"
