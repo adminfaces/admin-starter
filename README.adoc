@@ -7,13 +7,13 @@ A simple project to get you started with https://github.com/adminfaces[AdminFace
 image:starter1.png[link="https://github.com/adminfaces/admin-starter/blob/master/starter1.png"]
 
 .Car list
-image:starter2.png[link="https://github.com/adminfaces/admin-starter/blob/master/starter2.png"]
+image:starter2.png[link="https://raw.githubusercontent.com/adminfaces/admin-starter/master/starter2.png"]
 
 .Car form
-image:starter3.png[link="https://github.com/adminfaces/admin-starter/blob/master/starter3.png"]
+image:starter3.png[link="https://raw.githubusercontent.com/adminfaces/admin-starter/master/starter3.png"]
 
 .Car form responsive
-image:starter4.png[link="https://github.com/adminfaces/admin-starter/blob/master/starter4.png"]
+image:starter4.png[link="https://raw.githubusercontent.com/adminfaces/admin-starter/master/starter4.png"]
 
 == Running
 
