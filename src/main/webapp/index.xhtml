@@ -23,32 +23,5 @@
 
     </ui:define>
 
-    <ui:define name="body">
-        <script type="text/javascript">
-            /*if ('serviceWorker' in navigator) {
-             navigator.serviceWorker.register('sw.js');
-             }*/
-
-
-            if ('serviceWorker' in navigator) {
-              /*  navigator.serviceWorker.getRegistrations().then(function (registrations) {
-                    for (let registration of registrations) {
-                        registration.unregister()
-                    }
-                });*/
-
-                 window.addEventListener('load', function () {
-                    navigator.serviceWorker.register('sw.js').then(function (registration) {
-                        // Registration was successful
-                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                    }, function (err) {
-                        // registration failed :(
-                        console.log('ServiceWorker registration failed: ', err);
-                    });
-                });
-            }
-        </script>
-    </ui:define>
-
 
 </ui:composition>
