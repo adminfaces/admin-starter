@@ -9,9 +9,6 @@ image:starter1.png[link="https://github.com/adminfaces/admin-starter/blob/master
 .Car list
 image:starter2.png[link="https://raw.githubusercontent.com/adminfaces/admin-starter/master/starter2.png"]
 
-.Car search
-image:starter5.png[link="https://raw.githubusercontent.com/adminfaces/admin-starter/master/starter5.png"]
-
 .Car form
 image:starter3.png[link="https://raw.githubusercontent.com/adminfaces/admin-starter/master/starter3.png"]
 
