@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.Serializable;
 
 import static com.github.adminfaces.starter.util.Utils.addDetailMessage;
+import com.github.adminfaces.template.config.AdminConfig;
+import javax.inject.Inject;
 
 /**
  * Created by rmpestano on 12/20/14.
@@ -32,13 +34,15 @@ public class LogonMB extends AdminSession implements Serializable {
     private String email;
     private String password;
     private boolean remember;
+    @Inject
+    private AdminConfig adminConfig;
 
 
     public void login() throws IOException {
         currentUser = email;
         addDetailMessage("Logged in successfully as <b>" + email + "</b>");
         Faces.getExternalContext().getFlash().setKeepMessages(true);
-        Faces.redirect("index.jsf");
+        Faces.redirect(adminConfig.getIndexPage());
     }
 
     @Override
