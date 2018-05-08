@@ -68,6 +68,8 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.jsf</url-pattern>
     </servlet-mapping>
+    
+    <!-- Don't need to declare error pages if you keep the default sufix (.xhtml)-->
     <error-page>
         <error-code>403</error-code>
         <location>/403.jsf</location>
