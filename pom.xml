@@ -11,7 +11,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <adminfaces.version>1.0.0-RC16</adminfaces.version>
+        <adminfaces.version>1.0.0-RC18</adminfaces.version>
     </properties>
 
     <dependencies>
