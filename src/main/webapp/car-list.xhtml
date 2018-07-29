@@ -12,10 +12,8 @@
             .ui-datatable .ui-datatable-header {
                 text-align: right !important;
             }
-
         </style>
     </ui:define>
-
 
     <ui:define name="description">
         Find cars by name, price and model
@@ -97,7 +95,7 @@
                                             oncomplete="PF('carsTable').filter()"/>
                                 </p:autoComplete>
                             </f:facet>
-                            <p:link value="#{c.model}" outcome="/car-form.xhtml" >
+                            <p:link value="#{c.model}" outcome="/car-form" >
                                 <f:param name="id" value="#{c.id}"/>
                             </p:link>
 
