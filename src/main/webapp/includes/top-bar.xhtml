@@ -18,8 +18,8 @@
         <li>
             <h:form prependId="false">
                 <p:menuButton value="Layout" style="margin:10px 10px 0 0 " id="layout-menu">
-                    <p:menuitem value="Left menu (default)" action="#{layoutMB.setDefaultTemplate()}" onclick="store('layout.default-template',true)" ajax="false" icon="fa fa-list-ul"/>
-                    <p:menuitem value="Top menu"  action="#{layoutMB.setTemplateTop()}" ajax="false" onclick="store('layout.default-template',false)" icon="fa fa-credit-card"/>
+                    <p:menuitem value="Left menu (default)" disabled="#{layoutMB.leftMenuTemplate}" onclick="toggleTemplate();return false" ajax="false" icon="fa fa-list-ul"/>
+                    <p:menuitem value="Top menu" disabled="#{not layoutMB.leftMenuTemplate}" onclick="toggleTemplate();return false" ajax="false" icon="fa fa-credit-card"/>
                 </p:menuButton>
             </h:form>
         </li>
