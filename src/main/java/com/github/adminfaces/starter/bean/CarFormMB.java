@@ -28,7 +28,6 @@ public class CarFormMB implements Serializable {
     private Integer id;
     private Car car;
 
-
     @Inject
     CarService carService;
 
@@ -66,7 +65,7 @@ public class CarFormMB implements Serializable {
             addDetailMessage("Car " + car.getModel()
                     + " removed successfully");
             Faces.getFlash().setKeepMessages(true);
-            Faces.redirect("car-list.xhtml");
+            Faces.redirect("car-list.jsf");
         }
     }
 
