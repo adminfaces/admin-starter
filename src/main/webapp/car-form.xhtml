@@ -15,7 +15,7 @@
             <f:event type="preRenderView" listener="#{carFormMB.init}"/>
         </f:metadata>
 
-        <adm:breadcrumb title="#{empty carFormMB.id ? 'New Car' : 'Car '.concat(carFormMB.id)}" link="car-form.jsf?id=#{carFormMB.id}"/>
+        <adm:breadcrumb title="#{empty carFormMB.id ? 'New Car' : 'Car '.concat(carFormMB.id)}" link="/car-form.jsf?id=#{carFormMB.id}"/>
         <h:form id="form" prependId="false">
             <p:focus rendered="#{empty carFormMB.id}"/>
 
