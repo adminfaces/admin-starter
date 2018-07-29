@@ -29,3 +29,9 @@ a#logout {
     color: #3c8dbc!important;
     background: transparent;
 }
+
+@media (max-width: 768px) {
+    body .control-sidebar {
+        padding-top:100px;
+    }
+}
