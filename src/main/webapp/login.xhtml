@@ -19,6 +19,23 @@
         <link rel="manifest" href="/manifest.json"/>
         <meta name="theme-color" content="#444"/>
         <meta name="mobile-web-app-capable" content="yes"/>
+        
+        <style type="text/css">
+                body.login-page {
+                    background-color: transparent;
+                }
+
+                html {
+                    background: url(#{resource[ 'images:login-bg.jpg' ]}) no-repeat center center fixed;
+                    -webkit-background-size: cover;
+                    -moz-background-size: cover;
+                    -o-background-size: cover;
+                    background-size: cover;
+                }
+                body .load-bar {
+                    margin-top: -20px;
+                }
+            </style>
     </h:head>
 
     <h:body styleClass="hold-transition login-page">
