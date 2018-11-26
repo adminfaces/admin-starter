@@ -89,7 +89,7 @@
                                   filterMatchMode="contains">
                             <f:facet name="filter">
                                 <p:autoComplete value="#{carListMB.filter.entity.model}" forceSelection="true"
-                                                minQueryLength="2" queryDelay="500"
+                                                minQueryLength="2" queryDelay="500" dropdown="true"
                                                 completeMethod="#{carListMB.completeModel}" maxResults="10">
                                     <p:ajax event="itemSelect" process="@this" update="@none"
                                             oncomplete="PF('carsTable').filter()"/>
