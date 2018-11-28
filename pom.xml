@@ -1,3 +1,4 @@
+
 <?xml version="1.0"?>
 <project
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
@@ -11,7 +12,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <adminfaces.version>1.0.0-RC19</adminfaces.version>
+        <adminfaces.version>1.0.0-RC20</adminfaces.version>
     </properties>
 
     <dependencies>
@@ -36,18 +37,6 @@
             <groupId>com.github.adminfaces</groupId>
             <artifactId>admin-template</artifactId>
             <version>${adminfaces.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.github.adminfaces</groupId>
-                    <artifactId>admin-theme</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>com.github.adminfaces</groupId>
-            <artifactId>admin-theme</artifactId>
-            <version>${adminfaces.version}</version>
-            <!--<classifier>dev</classifier> uncompressed theme.css (note that you need to exclude admin-theme brought by admin-template dependency)-->
         </dependency>
     </dependencies>
     <build>
