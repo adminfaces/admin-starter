@@ -31,4 +31,4 @@ The application is available at http://localhost:8080/admin-starter
 
 == Demo
 
-A live demo is available on Openshift here: http://admin-starter-admin-starter.1d35.starter-us-east-1.openshiftapps.com/admin-starter/
+A live demo is available on http://admin-starter-admin-starter.1d35.starter-us-east-1.openshiftapps.com/admin-starter/[Openshift here^] or in http://docker175206-admin-starter.jelasticlw.com.br/admin-starter[Jelastic here^]. 
