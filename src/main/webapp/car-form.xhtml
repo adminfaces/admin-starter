@@ -17,8 +17,7 @@
 
         <adm:breadcrumb title="#{empty carFormMB.id ? 'New Car' : 'Car '.concat(carFormMB.id)}" link="/car-form.jsf?id=#{carFormMB.id}"/>
         <h:form id="form" prependId="false">
-            <p:focus rendered="#{empty carFormMB.id}"/>
-
+			<p:focus context="@form"/>
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <div id="main-buttons" class="hidden-sm hidden-xs">
@@ -50,8 +49,9 @@
                                     process="@this" update="@form" rendered="#{carFormMB.isNew()}"
                                     resetValues="true" icon="fa fa-refresh"/>
                         <p:menuitem value="Delete" action="#{carFormMB.remove}" process="@this"
-                                    rendered="#{not carFormMB.isNew()}" icon="fa fa-trash"
-                                 >
+                                    rendered="#{not carFormMB.isNew()}" icon="fa fa-trash">
+                            <f:setPropertyActionListener value="true"
+                                                         target="#{facesContext.externalContext.flash.keepMessages}"/>
                             <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
                         </p:menuitem>
                         <p:separator/>
