@@ -4,20 +4,22 @@
                 xmlns:p="http://primefaces.org/ui" xmlns:adm="http://github.com/adminfaces"
                 template="#{layoutMB.template}">
 
-    <ui:define name="title">
-        Car form
-    </ui:define>
-
-    <ui:define name="body">
+    <ui:define name="metadata">
         <f:metadata>
             <f:viewParam name="id" value="#{carFormMB.id}" converter="javax.faces.Long"/>
             <!-- use view action if you are in a Java EE 7 server: <f:viewAction action="#{carFormMB.init()}"/>-->
             <f:event type="preRenderView" listener="#{carFormMB.init}"/>
         </f:metadata>
+        <ui:param name="renderAsterisks" value="true"/>
+    </ui:define>
+    <ui:define name="title">
+        Car form
+    </ui:define>
 
+    <ui:define name="body">
         <adm:breadcrumb title="#{empty carFormMB.id ? 'New Car' : 'Car '.concat(carFormMB.id)}" link="/car-form.jsf?id=#{carFormMB.id}"/>
         <h:form id="form" prependId="false">
-			<p:focus context="@form"/>
+            <p:focus context="@form"/>
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <div id="main-buttons" class="hidden-sm hidden-xs">
@@ -63,31 +65,50 @@
                     <p:separator/>
 
                     <div class="ui-g ui-fluid">
-                        <div class="ui-sm-12 ui-md-2 ui-lg-1">
-                            <p:outputLabel for="id" value="ID"/>
-                        </div>
-                        <div class="ui-sm-12 ui-md-4 ui-lg-5" >
-                            <p:inputText id="id" value="#{carFormMB.car.id}" size="4"
-                                         readonly="true" styleClass="form-control" style="width: 100%"/>
-                        </div>
-                        <div class="ui-sm-12 ui-md-2 ui-lg-1">
-                            <p:outputLabel value="Model" for="inptModel"/>
-                        </div>
-                        <div class="ui-sm-12 ui-md-4 ui-lg-5" >
-                            <p:inputText id="inptModel" value="#{carFormMB.car.model}"/>
-                        </div>
-                        <div class="ui-sm-12 ui-md-2 ui-lg-1">
-                            <p:outputLabel value="Name" for="inptName"/>
-                        </div>
-                        <div class="ui-sm-12 ui-md-4 ui-lg-5" >
-                            <p:inputText id="inptName" value="#{carFormMB.car.name}"/>
-                        </div>
-                        <div class="ui-sm-12 ui-md-2 ui-lg-1">
-                            <p:outputLabel value="Price" for="inptPrice"/>
-                        </div>
-                        <div class="ui-sm-12 ui-md-4 ui-lg-5" >
-                            <p:inputNumber id="inptPrice" value="#{carFormMB.car.price}"/>
-                        </div>
+                        <div class="ui-sm-12 ui-g-6 ui-g-nopad"> 
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:outputLabel for="id" value="ID"/>
+                            </div>
+                            <div class="ui-sm-12 ui-g-11" >
+                                <p:inputText id="id" value="#{carFormMB.car.id}" readonly="true" styleClass="form-control ui-state-disabled" style="width: 100%"/>
+                                <span class="help-block"> 
+                                    <p:message for="id" /> 
+                                </span> 
+                            </div>
+                        </div> 
+                        <div class="ui-sm-12 ui-g-6 ui-g-nopad"> 
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:outputLabel value="Model" for="inptModel"/>
+                            </div>
+                            <div class="ui-sm-12 ui-g-11" >
+                                <p:inputText id="inptModel" value="#{carFormMB.car.model}" required="true"/>
+                                <span class="help-block"> 
+                                    <p:message for="inptModel" /> 
+                                </span> 
+                            </div>
+                        </div>     
+                        <div class="ui-sm-12 ui-g-6 ui-g-nopad">     
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:outputLabel value="Name" for="inptName"/>
+                            </div>
+                            <div class="ui-sm-12 ui-g-11" >
+                                <p:inputText id="inptName" value="#{carFormMB.car.name}" required="true"/>
+                                <span class="help-block"> 
+                                    <p:message for="inptName" /> 
+                                </span>
+                            </div>
+                        </div>     
+                        <div class="ui-sm-12 ui-g-6 ui-g-nopad">     
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:outputLabel value="Price" for="inptPrice"/>
+                            </div>
+                            <div class="ui-sm-12 ui-g-11" >
+                                <p:inputNumber id="inptPrice" value="#{carFormMB.car.price}" required="true"/>
+                                <span class="help-block"> 
+                                    <p:message for="inptPrice" /> 
+                                </span>
+                            </div>
+                        </div> 
                     </div>
                 </div>
             </div>

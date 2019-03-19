@@ -12,7 +12,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <adminfaces.version>1.0.0-RC21</adminfaces.version>
+        <adminfaces.version>1.0.0-RC22-SNAPSHOT</adminfaces.version>
     </properties>
 
     <dependencies>
@@ -21,11 +21,6 @@
             <artifactId>javaee-api</artifactId>
             <version>7.0</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces</groupId>
-            <artifactId>primefaces</artifactId>
-            <version>7.0.RC2</version>
         </dependency>
         <dependency>
             <groupId>org.primefaces.extensions</groupId>
