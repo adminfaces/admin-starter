@@ -10,7 +10,7 @@
             <!-- use view action if you are in a Java EE 7 server: <f:viewAction action="#{carFormMB.init()}"/>-->
             <f:event type="preRenderView" listener="#{carFormMB.init}"/>
         </f:metadata>
-        <ui:param name="renderAsterisks" value="true"/>
+        <ui:param name="renderFormAsterisks" value="true"/>
     </ui:define>
     <ui:define name="title">
         Car form
@@ -20,30 +20,97 @@
         <adm:breadcrumb title="#{empty carFormMB.id ? 'New Car' : 'Car '.concat(carFormMB.id)}" link="/car-form.jsf?id=#{carFormMB.id}"/>
         <h:form id="form" prependId="false">
             <p:focus context="@form"/>
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <div id="main-buttons" class="hidden-sm hidden-xs">
-                        <p:commandButton value="Save" action="#{carFormMB.save}" update="@form"
-                                         icon="fa fa-check" styleClass="btn-primary"/>
-                        <p:spacer width="5" rendered="#{carFormMB.isNew()}"/>
-                        <p:commandButton value="Clear" action="#{carFormMB.clear}" process="@this"
-                                         icon="fa fa-refresh" styleClass="btn-success"
-                                         update="@form" rendered="#{carFormMB.isNew()}" resetValues="true"/>
-                        <p:spacer width="5" rendered="#{not carFormMB.isNew()}"/>
+            <p:panel styleClass="box-primary card">
+                <div id="main-buttons" class="hidden-sm hidden-xs">
+                    <p:commandButton value="Save" action="#{carFormMB.save}" update="@form"
+                                     icon="fa fa-check" styleClass="btn-primary"/>
+                    <p:spacer width="5" rendered="#{carFormMB.isNew()}"/>
+                    <p:commandButton value="Clear" action="#{carFormMB.clear}" process="@this"
+                                     icon="fa fa-refresh" styleClass="btn-success"
+                                     update="@form" rendered="#{carFormMB.isNew()}" resetValues="true"/>
+                    <p:spacer width="5" rendered="#{not carFormMB.isNew()}"/>
 
-                        <p:commandButton value="Delete" action="#{carFormMB.remove}" process="@this"
-                                         rendered="#{not carFormMB.isNew()}" icon="fa fa-trash"
-                                         styleClass="btn-danger">
-                            <f:setPropertyActionListener value="true"
-                                                         target="#{facesContext.externalContext.flash.keepMessages}"/>
-                            <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
-                        </p:commandButton>
-                        <p:spacer width="5"/>
-                        <p:commandButton value="Back" immediate="true"
-                                         action="car-list?faces-redirect=true"
-                                         process="@this"
-                                         icon="fa fa-reply"/>
-                    </div>
+                    <p:commandButton value="Delete" action="#{carFormMB.remove}" process="@this"
+                                     rendered="#{not carFormMB.isNew()}" icon="fa fa-trash"
+                                     styleClass="btn-danger">
+                        <f:setPropertyActionListener value="true"
+                                                     target="#{facesContext.externalContext.flash.keepMessages}"/>
+                        <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
+                    </p:commandButton>
+                    <p:spacer width="5"/>
+                    <p:commandButton value="Back" immediate="true"
+                                     action="car-list?faces-redirect=true"
+                                     process="@this"
+                                     icon="fa fa-reply"/>
+                </div>
+                <p:splitButton value="Save" action="#{carFormMB.save}" update="@form"
+                               icon="fa fa-check"
+                               styleClass="hidden-md hidden-lg btn-primary">
+                    <p:menuitem value="Reset" action="#{carFormMB.clear}"
+                                process="@this" update="@form" rendered="#{carFormMB.isNew()}"
+                                resetValues="true" icon="fa fa-refresh"/>
+                    <p:menuitem value="Delete" action="#{carFormMB.remove}" process="@this"
+                                rendered="#{not carFormMB.isNew()}" icon="fa fa-trash">
+                        <f:setPropertyActionListener value="true"
+                                                     target="#{facesContext.externalContext.flash.keepMessages}"/>
+                        <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
+                    </p:menuitem>
+                    <p:separator/>
+                    <p:menuitem value="Back" action="car-list?faces-redirect=true"
+                                process="@this" immediate="true"
+                                icon="fa fa-reply"/>
+                </p:splitButton>
+
+                <hr/>
+
+                <div class="ui-g ui-fluid">
+                    <div class="ui-sm-12 ui-g-6 ui-g-nopad"> 
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel for="id" value="ID"/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11" >
+                            <p:inputText id="id" value="#{carFormMB.car.id}" readonly="true" styleClass="form-control ui-state-disabled" style="width: 100%"/>
+                            <span class="help-block"> 
+                                <p:message for="id" /> 
+                            </span> 
+                        </div>
+                    </div> 
+                    <div class="ui-sm-12 ui-g-6 ui-g-nopad"> 
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel value="Model" for="inptModel"/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11" >
+                            <p:inputText id="inptModel" value="#{carFormMB.car.model}" required="true"/>
+                            <span class="help-block"> 
+                                <p:message for="inptModel" /> 
+                            </span> 
+                        </div>
+                    </div>     
+                    <div class="ui-sm-12 ui-g-6 ui-g-nopad">     
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel value="Name" for="inptName"/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11" >
+                            <p:inputText id="inptName" value="#{carFormMB.car.name}" required="true"/>
+                            <span class="help-block"> 
+                                <p:message for="inptName" /> 
+                            </span>
+                        </div>
+                    </div>     
+                    <div class="ui-sm-12 ui-g-6 ui-g-nopad">     
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel value="Price" for="inptPrice"/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11" >
+                            <p:inputNumber id="inptPrice" value="#{carFormMB.car.price}" required="true"/>
+                            <span class="help-block"> 
+                                <p:message for="inptPrice" /> 
+                            </span>
+                        </div>
+                    </div> 
+                </div>
+                <h:panelGroup id="footer" layout="block" styleClass="hidden-sm hidden-md hidden-lg">
+                    <hr/>
                     <p:splitButton value="Save" action="#{carFormMB.save}" update="@form"
                                    icon="fa fa-check"
                                    styleClass="hidden-md hidden-lg btn-primary">
@@ -61,57 +128,8 @@
                                     process="@this" immediate="true"
                                     icon="fa fa-reply"/>
                     </p:splitButton>
-
-                    <p:separator/>
-
-                    <div class="ui-g ui-fluid">
-                        <div class="ui-sm-12 ui-g-6 ui-g-nopad"> 
-                            <div class="ui-sm-12 ui-g-11">
-                                <p:outputLabel for="id" value="ID"/>
-                            </div>
-                            <div class="ui-sm-12 ui-g-11" >
-                                <p:inputText id="id" value="#{carFormMB.car.id}" readonly="true" styleClass="form-control ui-state-disabled" style="width: 100%"/>
-                                <span class="help-block"> 
-                                    <p:message for="id" /> 
-                                </span> 
-                            </div>
-                        </div> 
-                        <div class="ui-sm-12 ui-g-6 ui-g-nopad"> 
-                            <div class="ui-sm-12 ui-g-11">
-                                <p:outputLabel value="Model" for="inptModel"/>
-                            </div>
-                            <div class="ui-sm-12 ui-g-11" >
-                                <p:inputText id="inptModel" value="#{carFormMB.car.model}" required="true"/>
-                                <span class="help-block"> 
-                                    <p:message for="inptModel" /> 
-                                </span> 
-                            </div>
-                        </div>     
-                        <div class="ui-sm-12 ui-g-6 ui-g-nopad">     
-                            <div class="ui-sm-12 ui-g-11">
-                                <p:outputLabel value="Name" for="inptName"/>
-                            </div>
-                            <div class="ui-sm-12 ui-g-11" >
-                                <p:inputText id="inptName" value="#{carFormMB.car.name}" required="true"/>
-                                <span class="help-block"> 
-                                    <p:message for="inptName" /> 
-                                </span>
-                            </div>
-                        </div>     
-                        <div class="ui-sm-12 ui-g-6 ui-g-nopad">     
-                            <div class="ui-sm-12 ui-g-11">
-                                <p:outputLabel value="Price" for="inptPrice"/>
-                            </div>
-                            <div class="ui-sm-12 ui-g-11" >
-                                <p:inputNumber id="inptPrice" value="#{carFormMB.car.price}" required="true"/>
-                                <span class="help-block"> 
-                                    <p:message for="inptPrice" /> 
-                                </span>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-            </div>
+                </h:panelGroup>
+            </p:panel>
 
             <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="box-danger box-solid">
                 <p:commandButton value="Yes" type="button" styleClass="btn-material btn-primary ui-confirmdialog-yes"
