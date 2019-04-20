@@ -36,7 +36,7 @@ public class CarListMB implements Serializable {
     List<Car> selectedCars; //cars selected in checkbox column
 
     List<Car> filteredValue;// datatable filteredValue attribute (column filters)
-
+    
     @PostConstruct
     public void initDataModel() {
         cars = new LazyDataModel<Car>() {
@@ -68,6 +68,8 @@ public class CarListMB implements Serializable {
                 return carService.findById(new Integer(key));
             }
         };
+        
+      
     }
 
     public void clear() {
@@ -135,4 +137,5 @@ public class CarListMB implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
+
 }

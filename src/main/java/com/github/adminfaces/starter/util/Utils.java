@@ -11,21 +11,22 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
+import javax.inject.Named;
 
 /**
  * Created by rmpestano on 07/02/17.
  */
+@Named
 @ApplicationScoped
 public class Utils implements Serializable {
 
     private List<Car> cars;
 
-
     @PostConstruct
     public void init() {
         cars = new ArrayList<>();
         IntStream.rangeClosed(1, 50)
-                .forEach(i -> cars.add(create(i)));
+            .forEach(i -> cars.add(create(i)));
     }
 
     private static Car create(int i) {
