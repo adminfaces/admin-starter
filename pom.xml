@@ -37,6 +37,11 @@
             <version>6.1.1</version>
             <!-- only for gravatar, adminfaces doesn't depend on extensions-->
         </dependency>
+        <dependency>
+            <groupId>org.omnifaces</groupId>
+            <artifactId>omnifaces</artifactId>
+            <version>3.2</version>
+        </dependency>    
     </dependencies>
     <build>
         <resources>
