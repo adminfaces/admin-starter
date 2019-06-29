@@ -98,6 +98,11 @@
                     <artifactId>ejb</artifactId>
                     <version>${version.wildfly-swarm}</version>
                 </dependency>
+                <dependency>
+                    <groupId>org.omnifaces</groupId>
+                    <artifactId>omnifaces</artifactId>
+                    <version>2.1</version>
+                </dependency>
             </dependencies>
 
             <build>
