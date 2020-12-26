@@ -18,7 +18,7 @@
     <ui:define name="body">
         <adm:breadcrumb title="#{empty carFormMB.id ? 'New Car' : 'Car '.concat(carFormMB.id)}" link="/car-form.jsf?id=#{carFormMB.id}"/>
         <h:form id="form" prependId="false">
-            <p:focus context="@form"/>
+            <p:focus rendered="#{empty carFormMB.id}"/>
             <p:panel styleClass="box-primary card">
                 <div id="main-buttons" class="hidden-sm hidden-xs">
                     <p:commandButton value="Save" action="#{carFormMB.save}" update="@form"
@@ -60,7 +60,7 @@
                                 icon="fa fa-reply"/>
                 </p:splitButton>
 
-                <hr/>
+                    <p:separator/>
 
                 <div class="ui-g ui-fluid">
                     <div class="ui-sm-12 ui-g-6 ui-g-nopad"> 

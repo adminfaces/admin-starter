@@ -5,6 +5,7 @@ import com.github.adminfaces.starter.model.Car;
 import com.github.adminfaces.starter.service.CarService;
 import com.github.adminfaces.template.exception.BusinessException;
 import org.omnifaces.cdi.ViewScoped;
+import org.primefaces.model.FilterMeta;
 import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortOrder;
 
@@ -43,7 +44,7 @@ public class CarListMB implements Serializable {
             @Override
             public List<Car> load(int first, int pageSize,
                                   String sortField, SortOrder sortOrder,
-                                  Map<String, Object> filters) {
+                                  Map<String, FilterMeta> filters) {
                 com.github.adminfaces.starter.infra.model.SortOrder order = null;
                 if (sortOrder != null) {
                     order = sortOrder.equals(SortOrder.ASCENDING) ? com.github.adminfaces.starter.infra.model.SortOrder.ASCENDING
