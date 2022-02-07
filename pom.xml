@@ -11,7 +11,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <adminfaces.version>1.2.0</adminfaces.version>
+        <adminfaces.version>1.3.2</adminfaces.version>
     </properties>
 
     <dependencies>
@@ -29,13 +29,18 @@
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
-            <version>8.0</version>
+            <version>10.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.primefaces.extensions</groupId>
             <artifactId>primefaces-extensions</artifactId>
             <version>8.0.4</version>
             <!-- only for gravatar, adminfaces doesn't depend on extensions-->
+        </dependency>
+        <dependency>
+            <groupId>org.omnifaces</groupId>
+            <artifactId>omnifaces</artifactId>
+            <version>3.4.1</version>
         </dependency>
     </dependencies>
     <build>
@@ -67,100 +72,14 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version>
+            </plugin>
         </plugins>
         <finalName>admin-starter</finalName>
     </build>
-    <profiles>
-        <profile>
-            <id>swarm</id>
-            <properties>
-                <version.wildfly-swarm>2018.3.3</version.wildfly-swarm>
-            </properties>
-
-            <dependencies>
-                <dependency>
-                    <groupId>org.wildfly.swarm</groupId>
-                    <artifactId>jsf</artifactId>
-                    <version>${version.wildfly-swarm}</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.wildfly.swarm</groupId>
-                    <artifactId>cdi</artifactId>
-                    <version>${version.wildfly-swarm}</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.wildfly.swarm</groupId>
-                    <artifactId>ejb</artifactId>
-                    <version>${version.wildfly-swarm}</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.omnifaces</groupId>
-                    <artifactId>omnifaces</artifactId>
-                    <version>2.1</version>
-                </dependency>
-            </dependencies>
-
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>3.5</version>
-                        <configuration>
-                            <source>1.8</source>
-                            <target>1.8</target>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>2.19.1</version>
-                        <configuration>
-                            <skipTests>true</skipTests>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-war-plugin</artifactId>
-                        <version>2.6</version>
-                        <configuration>
-                            <failOnMissingWebXml>false</failOnMissingWebXml>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.wildfly.swarm</groupId>
-                        <artifactId>wildfly-swarm-plugin</artifactId>
-                        <version>${version.wildfly-swarm}</version>
-                        <executions>
-                            <execution>
-                                <id>package</id>
-                            </execution>
-                            <execution>
-                                <id>start</id>
-                            </execution>
-                            <execution>
-                                <id>stop</id>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-
-            <repositories>
-                <repository>
-                    <id>jboss-public-repository-group</id>
-                    <name>JBoss Public Repository Group</name>
-                    <url>https://repository.jboss.org/nexus/content/groups/public/</url>
-                    <releases>
-                        <enabled>true</enabled>
-                        <updatePolicy>never</updatePolicy>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                        <updatePolicy>daily</updatePolicy>
-                    </snapshots>
-                </repository>
-            </repositories>
-        </profile>
-    </profiles>
 
     <repositories>
         <repository>
