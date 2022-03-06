@@ -51,7 +51,7 @@ public class CarService implements Serializable {
             }
 
         int page = filter.getFirst() + filter.getPageSize();
-        if (filter.getParams().isEmpty()) {
+        if (!pagedCars.isEmpty() && filter.getParams().isEmpty()) {
             pagedCars = pagedCars.subList(filter.getFirst(), page > allCars.size() ? allCars.size() : page);
             return pagedCars;
         }
