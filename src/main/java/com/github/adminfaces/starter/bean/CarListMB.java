@@ -14,13 +14,13 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 import static com.github.adminfaces.starter.util.Utils.addDetailMessage;
 import static com.github.adminfaces.template.util.Assert.has;
-import static java.util.Optional.ofNullable;
 
 /**
  * Created by rmpestano on 12/02/17.
@@ -102,7 +102,7 @@ public class CarListMB implements Serializable {
         if (id == null) {
             throw new BusinessException("Provide Car ID to load");
         }
-        selectedCars.add(carService.findById(id));
+        selectedCars = Arrays.asList(carService.findById(id));
     }
 
     public void delete() {
