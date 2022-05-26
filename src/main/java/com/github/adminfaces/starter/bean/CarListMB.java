@@ -94,8 +94,7 @@ public class CarListMB implements Serializable {
     }
 
     public List<String> completeModel(String query) {
-        List<String> result = carService.getModels(query);
-        return result;
+        return carService.getModels(query);
     }
 
     public void findCarById(Integer id) {

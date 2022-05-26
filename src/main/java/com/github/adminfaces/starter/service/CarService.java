@@ -52,7 +52,7 @@ public class CarService implements Serializable {
 
         int page = filter.getFirst() + filter.getPageSize();
         if (!pagedCars.isEmpty() && filter.getParams().isEmpty()) {
-            pagedCars = pagedCars.subList(filter.getFirst(), page > allCars.size() ? allCars.size() : page);
+            pagedCars = allCars.subList(filter.getFirst(), Math.min(page, allCars.size()));
             return pagedCars;
         }
 
@@ -90,16 +90,16 @@ public class CarService implements Serializable {
 
         if (filter.hasParam("minPrice") && filter.hasParam("maxPrice")) {
             Predicate<Car> minMaxPricePredicate = (Car c) -> c.getPrice()
-                    >= Double.valueOf((String) filter.getParam("minPrice")) && c.getPrice()
-                    <= Double.valueOf((String) filter.getParam("maxPrice"));
+                    >= Double.parseDouble((String) filter.getParam("minPrice")) && c.getPrice()
+                    <= Double.parseDouble((String) filter.getParam("maxPrice"));
             predicates.add(minMaxPricePredicate);
         } else if (filter.hasParam("minPrice")) {
             Predicate<Car> minPricePredicate = (Car c) -> c.getPrice()
-                    >= Double.valueOf((String) filter.getParam("minPrice"));
+                    >= Double.parseDouble((String) filter.getParam("minPrice"));
             predicates.add(minPricePredicate);
         } else if (filter.hasParam("maxPrice")) {
             Predicate<Car> maxPricePredicate = (Car c) -> c.getPrice()
-                    <= Double.valueOf((String) filter.getParam("maxPrice"));
+                    <= Double.parseDouble((String) filter.getParam("maxPrice"));
             predicates.add(maxPricePredicate);
         }
 
@@ -133,7 +133,7 @@ public class CarService implements Serializable {
     public void insert(Car car) {
         validate(car);
         car.setId(allCars.stream()
-                .mapToInt(c -> c.getId())
+                .mapToInt(Car::getId)
                 .max()
                 .getAsInt()+1);
         allCars.add(car);
@@ -182,7 +182,7 @@ public class CarService implements Serializable {
 
     public void update(Car car) {
         validate(car);
-        allCars.remove(allCars.indexOf(car));
+        allCars.remove(car);
         allCars.add(car);
     }
 }

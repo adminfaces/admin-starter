@@ -23,8 +23,6 @@ import static com.github.adminfaces.template.util.Assert.has;
 @Named
 @ViewScoped
 public class CarFormMB implements Serializable {
-
-
     private Integer id;
     private Car car;
 
@@ -32,8 +30,8 @@ public class CarFormMB implements Serializable {
     CarService carService;
 
     public void init() {
-        if(Faces.isAjaxRequest()){
-           return;
+        if (Faces.isAjaxRequest()) {
+            return;
         }
         if (has(id)) {
             car = carService.findById(id);
@@ -59,7 +57,7 @@ public class CarFormMB implements Serializable {
     }
 
 
-    public void remove() throws IOException {
+    public void remove() {
         if (has(car) && has(car.getId())) {
             carService.remove(car);
             addDetailMessage("Car " + car.getModel()
