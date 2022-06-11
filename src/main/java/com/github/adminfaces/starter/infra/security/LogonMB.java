@@ -3,15 +3,15 @@ package com.github.adminfaces.starter.infra.security;
 import com.github.adminfaces.template.session.AdminSession;
 import org.omnifaces.util.Faces;
 
-import javax.enterprise.context.SessionScoped;
-import javax.enterprise.inject.Specializes;
-import javax.inject.Named;
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.enterprise.inject.Specializes;
+import jakarta.inject.Named;
 import java.io.IOException;
 import java.io.Serializable;
 
 import static com.github.adminfaces.starter.util.Utils.addDetailMessage;
 import com.github.adminfaces.template.config.AdminConfig;
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 /**
  * Created by rmpestano on 12/20/14.

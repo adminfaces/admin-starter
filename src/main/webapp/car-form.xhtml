@@ -6,7 +6,7 @@
 
     <ui:define name="metadata">
         <f:metadata>
-            <f:viewParam name="id" value="#{carFormMB.id}" converter="javax.faces.Long"/>
+            <f:viewParam name="id" value="#{carFormMB.id}" converter="jakarta.faces.Long"/>
             <!-- use view action if you are in a Java EE 7 server: <f:viewAction action="#{carFormMB.init()}"/>-->
             <f:event type="preRenderView" listener="#{carFormMB.init}"/>
         </f:metadata>

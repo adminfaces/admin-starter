@@ -2,8 +2,7 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:p="http://primefaces.org/ui"
-                xmlns:pe="http://primefaces.org/ui/extensions">
+                xmlns:p="http://primefaces.org/ui">
 
     <style type="text/css">
         #layout-menu_menu {
@@ -25,15 +24,15 @@
         </li>
         <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <pe:gravatar id="userImage"
+                <p:avatar id="userImage"
                              value="nonexisting"/>
                 <span class="hidden-xs">#{logonMB.currentUser}</span>
             </a>
             <ul class="dropdown-menu">
                 <li class="user-header">
                     <div class="hidden-xs">
-                        <pe:gravatar style="border-radius: 50%"
-                                     value="rmpestano@gmail.com"/>
+                        <p:avatar style="border-radius: 50%"
+                                  gravatar="rmpestano@gmail.com"/>
                     </div>
                     <p>
                         #{logonMB.currentUser}

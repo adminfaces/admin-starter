@@ -3,10 +3,10 @@ package com.github.adminfaces.starter.util;
 import com.github.adminfaces.starter.model.Car;
 import org.omnifaces.util.Messages;
 
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Produces;
-import javax.faces.application.FacesMessage;
+import jakarta.annotation.PostConstruct;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.inject.Produces;
+import jakarta.faces.application.FacesMessage;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

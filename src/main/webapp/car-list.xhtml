@@ -112,7 +112,7 @@
                         <p:column headerText="Price" sortBy="#{c.price}" filterBy="#{c.price}">
                             <f:facet name="filter">
                                 <p:spinner value="#{carListMB.filter.entity.price}">
-                                    <f:converter converterId="javax.faces.Double"/>
+                                    <f:converter converterId="jakarta.faces.Double"/>
                                     <p:ajax process="@this" update="@none" oncomplete="PF('carsTable').filter()"/>
                                 </p:spinner>
                             </f:facet>

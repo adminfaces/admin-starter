@@ -6,12 +6,11 @@ package com.github.adminfaces.starter.bean;
 
 import com.github.adminfaces.starter.model.Car;
 import com.github.adminfaces.starter.service.CarService;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import org.omnifaces.cdi.ViewScoped;
 import org.omnifaces.util.Faces;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-import java.io.IOException;
 import java.io.Serializable;
 
 import static com.github.adminfaces.starter.util.Utils.addDetailMessage;

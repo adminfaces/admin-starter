@@ -9,8 +9,8 @@ import com.github.adminfaces.starter.infra.model.SortOrder;
 import com.github.adminfaces.starter.model.Car;
 import com.github.adminfaces.template.exception.BusinessException;
 
-import javax.ejb.Stateless;
-import javax.inject.Inject;
+import jakarta.ejb.Stateless;
+import jakarta.inject.Inject;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

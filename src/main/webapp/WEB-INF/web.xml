@@ -7,7 +7,7 @@
     </session-config>
     <!-- Change to "Production" when you are ready to deploy -->
     <context-param>
-        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-name>jakarta.faces.PROJECT_STAGE</param-name>
         <param-value>Production</param-value>
     </context-param>
     <context-param>
@@ -23,7 +23,7 @@
         <param-value>true</param-value>
     </context-param>
     <context-param>
-        <param-name>javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL</param-name>
+        <param-name>jakarta.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL</param-name>
         <param-value>true</param-value>
     </context-param>
     <context-param>
@@ -43,7 +43,7 @@
     </welcome-file-list>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
-        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <servlet-class>jakarta.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
@@ -91,11 +91,11 @@
         <location>/500.jsf</location>
     </error-page>
     <error-page>
-        <exception-type>javax.faces.application.ViewExpiredException</exception-type>
+        <exception-type>jakarta.faces.application.ViewExpiredException</exception-type>
         <location>/expired.jsf</location>
     </error-page>
     <error-page>
-        <exception-type>javax.persistence.OptimisticLockException</exception-type>
+        <exception-type>jakarta.persistence.OptimisticLockException</exception-type>
         <location>/optimistic.jsf</location>
     </error-page>
 </web-app>
